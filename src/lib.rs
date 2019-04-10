@@ -64,22 +64,14 @@ pub fn normalize(v: Vec3) -> Vec3 {
 
 pub fn viewing_matrix(eye: Vec3, up: Vec3, target: Vec3) -> Matrix44 {
     let d = [target[0] - eye[0], target[1] - eye[1], target[2] - eye[2]];
-    let r = cross(up, d);
-    let f = cross(d, r);
+    let r = cross(d, up);
+    let f = cross(r, d);
     let d = normalize(d);
     let r = normalize(r);
     let f = normalize(f);
-    let mut matrix = identity();
-    matrix[0] = r[0];
-    matrix[4] = r[1];
-    matrix[8] = r[2];
-    matrix[1] = f[0];
-    matrix[5] = f[1];
-    matrix[9] = f[2];
-    matrix[2] = -d[0];
-    matrix[6] = -d[1];
-    matrix[10] = -d[2];
-    matmul(translate(-eye[0], -eye[1], -eye[2]), matrix)
+    [
+        r[0], f[0], -d[0], 0., r[1], f[1], -d[1], 0., r[2], f[2], -d[2], 0., 0., 0., 0., 1.,
+    ]
 }
 
 pub fn orthogonal_matrix(
