@@ -39,6 +39,7 @@ Following methods are supported in cgmatrix:
 * rotate_x(theta)
 * rotate_y(theta)
 * translate(x, y, z)
+* scale(sx, sy, sz)
 * viewing_matrix(eye, up, target)
 * orthogonal_matrix(left, right, top, bottom, near, far)
 * perspective_matrix(fov, aspect, near, far)

@@ -40,6 +40,15 @@ pub fn translate(x: f32, y: f32, z: f32) -> Matrix44 {
     matrix
 }
 
+pub fn scale(sx: f32, sy: f32, sz: f32) -> Matrix44 {
+    let mut matrix = zeros();
+    matrix[0] = sx;
+    matrix[5] = sy;
+    matrix[10] = sz;
+    matrix[15] = 1.;
+    matrix
+}
+
 pub fn cross(v1: Vec3, v2: Vec3) -> Vec3 {
     [
         v1[1] * v2[2] - v1[2] * v2[1],
