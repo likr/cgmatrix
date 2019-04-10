@@ -1,0 +1,12 @@
+[package]
+name = "cgmatrix"
+version = "0.1.0"
+authors = ["Yosuke Onoue <onoue@likr-lab.com>"]
+edition = "2018"
+repository = "https://github.com/likr/cgmatrix"
+keywords = ["linear algebra", "matrix", "computer graphics"]
+license-file = "LICENSE"
+readme = "README.md"
+description = "Simple matrix library for computer graphics in Rust."
+
+[dependencies]
